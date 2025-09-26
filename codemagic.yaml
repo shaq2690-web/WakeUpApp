@@ -1,14 +1,14 @@
 workflows:
   android:
-    name: Flutter Android Workflow
+    name: Android Workflow
     install:
       # نصب وابستگی‌ها
       steps:
         - run:
-            name: Install Flutter
-            command: flutter doctor
+            name: Install dependencies
+            command: pip install buildozer plyer
     scripts:
       - name: Build APK
-        script: flutter build apk
+        command: buildozer android debug
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - buildozer/android/platform/build/dists/*/*.apk
