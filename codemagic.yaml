@@ -1,12 +1,8 @@
 workflows:
   android:
-    name: Android Workflow
+    name: Build APK for Kivy
     install:
-      # نصب وابستگی‌ها
-      steps:
-        - run:
-            name: Install dependencies
-            command: pip install buildozer plyer
+      command: pip install buildozer plyer
     scripts:
       - name: Build APK
         command: buildozer android debug
