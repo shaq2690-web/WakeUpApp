@@ -1,0 +1,15 @@
+workflows:
+  android:
+    name: Android Workflow
+    install:
+      # نصب وابستگی‌ها
+      steps:
+        - run:
+            name: Install dependencies
+            command: pip install -r requirements.txt
+    scripts:
+      - run:
+          name: Build APK
+          command: buildozer android debug
+    artifacts:
+      - buildozer/android/platform/build/dists/*/*.apk
